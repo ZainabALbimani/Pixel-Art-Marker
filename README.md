@@ -15,5 +15,4 @@ For specific, detailed instructions, look at the project instructions in the [Ud
 
 This repository is the starter code for _all_ Udacity students. Therefore, we most likely will not accept pull requests.
 
-## How to get started :-
-Download or Clone the Project to open the index.html in your browser and running.
+
