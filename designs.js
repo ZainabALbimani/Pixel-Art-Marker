@@ -1,24 +1,33 @@
-// Your code goes here!
-  var height = document.getElementById('inputHeight').value;
-  var width = document.getElementById('inputWidth').value;
-  var table = document.getElementById('pixelCanvas');
-// Table grid creation code :
-  table.innerHTML = '';
-  var tbody = document.createElement('tbody');
-  for (var i = 0; i < height; i++) {
-      var tr = document.createElement('tr');
-      for (var j = 0; j < width; j++) {
-          var td = document.createElement('td');
-          td.appendChild(document.createTextNode(''));
-          tr.appendChild(td);
-      }
-      tbody.appendChild(tr);
-  }
-  table.appendChild(tbody);
-}
+// variables - element,height, and width
+const table = document.getElementById('pixelCanvas');
+let heightt = $("#inputHeight");
+let widthh = $("#inputWidth");
 
-//jQuery to change color of pixel when clicked.
-$('body').on('click', 'td', function() {
-var color = document.getElementById('colorPicker').value;
-  $(this).css('backgroundColor', color);
+$('#inputSubmit').click(function(Submit) {
+  Submit.preventDefault();
+  makeGrid();
 });
+
+let color = $("#colorPicker");
+
+// When size is submitted by the user, call makeGrid()
+function makeGrid() {
+// Your code goes here!
+    table.innerHTML = '';
+    let height = heightt.value();
+    let width = widthh.value();
+
+    let addEvent = function(cell) {
+        cell.addEventListener('click', function() {
+            cell.style.backgroundColor = color.value();
+        });
+    }
+
+    for (let x = 0; x < height; x++) {
+        let row = table.insertRow(i);
+        for (let y = 0; y < width; y++) {
+            let cell = row.insertCell(j);
+            cell.addEventListener('click', addEvent(cell));
+        }
+    }
+}
